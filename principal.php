@@ -69,7 +69,7 @@ include ('layout/admin/datos_usuario_sesion.php');
                                                 <div class="form-group row">
                                                     <label for="" class="col-sm-2 col-form-label">Placa:</label>
                                                     <div class="col-sm-7">
-                                                        <input type="text" style="text-transform: uppercase;" class="form-control" id="placa_buscar<?php echo $id_map;?>" value="">
+                                                        <input type="text" style="text-transform: uppercase;" class="form-control" id="placa_buscar<?php echo $id_map;?>">
                                                     </div>
                                                     <div class="col-sm-3">
                                                         <button class="btn btn-primary" id="btn_buscar_cliente<?php echo $id_map;?>" type="button">
@@ -110,9 +110,10 @@ include ('layout/admin/datos_usuario_sesion.php');
                                                             $mes = date('m');
                                                             $ano = date('Y');
                                                         ?>
-                                                    <input type="date" class="form-control" id="" value="<?php echo $ano."-".$mes."-".$dia;?>">
+                                                    <input type="date" class="form-control" id="fecha_ingreso<?php echo $id_map;?>" value="<?php echo $ano."-".$mes."-".$dia;?>">
                                                     </div>
                                                 </div>
+
                                                 <div class="form-group row">
                                                     <label for="" class="col-sm-4 col-form-label">Hora de ingreso:</label>
                                                     <div class="col-sm-8">
@@ -123,13 +124,32 @@ include ('layout/admin/datos_usuario_sesion.php');
                                                         $minutos = date('i');
                                                         $segundos = date('s');
                                                     ?>
-                                                    <input type="time" class="form-control" id="" value="<?php echo $hora.":".$minutos.":".$segundos;?>">
+                                                    <input type="time" class="form-control" id="hora_ingreso<?php echo $id_map;?>" value="<?php echo $hora.":".$minutos.":".$segundos;?>">
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group row">
+                                                    <label for="" class="col-sm-4 col-form-label">Cuviculo:</label>
+                                                    <div class="col-sm-8">
+                                                    <input type="text" class="form-control" id="cuviculo<?php echo $id_map;?>" value="<?php echo $nro_espacio;?>">
                                                     </div>
                                                 </div>
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                                    <button type="button" class="btn btn-primary">Imprimir ticket</button>
+                                                    <button type="button" class="btn btn-primary" id="btn_registrar_ticket<?php echo $id_map;?>">Imprimir ticket</button>
+                                                    <script>
+                                                        $('#btn_registrar_ticket<?php echo $id_map;?>').click(function(){
+                                                            var placa = $('#placa_buscar<?php echo $id_map;?>').val();
+                                                            var nombre_cliente = $('#nombre_cliente<?php echo $id_map;?>"').val();
+                                                            var nit_ci = $('#nit_ci<?php echo $id_map;?>').val();
+                                                            var fecha_ingreso = $('#fecha_ingreso<?php echo $id_map;?>').val();
+                                                            var hora_ingreso = $('#hora_ingreso<?php echo $id_map;?>').val();
+                                                            var cuviculo = $('#cuviculo<?php echo $id_map;?>').val();
+
+                                                            
+                                                        });
+                                                    </script>
                                                 </div>
                                                 </div>
                                             </div>
